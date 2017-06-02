@@ -1,0 +1,21 @@
+Package: posibatch
+Title: Adjust for positional and batch effects using ComBat
+Version: 1.0
+Author: Chuan Jiao <jiaochuan@sklmg.edu.cn>, Chao Chen <chenchao@sklmg.edu.cn>, Chunyu Liu <liucy@uic.edu>
+Description: posibatch allows users to adjust for positional effects and batch effects in Illumina Beadchips. 
+    Positional effects means the same sample in different physical positions on the array could be measured 
+    as different methylation or expression levels, and batch effects. Batch effects are sub-groups of 
+    measurements that have qualitatively different behaviour across conditions and are unrelated to 
+    the biological or scientific variables in a study. It uses either parametric or non-parametric 
+    empirical Bayes frameworks for adjusting data for positional effects and batch effects. 
+    Users are returned an expression or methylation matrix that has been corrected for position effects and 
+    batch effects.
+Maintainer: Chuan Jiao <jiaochuan@sklmg.edu.cn>, Chao Chen <chenchao@sklmg.edu.cn>, Chunyu Liu <liucy@uic.edu>
+Depends: R (>= 2.8), sva
+License: GPL-2
+biocViews: Microarray, MethylationArray, StatisticalMethod,
+        Preprocessing, MultipleComparison, Sequencing, RNASeq,
+        BatchEffect, PositionalEffect, Normalization
+NeedsCompilation: yes
+RoxygenNote: 6.0.1
+Packaged: 2017-04-05 07:17:51 UTC; J
