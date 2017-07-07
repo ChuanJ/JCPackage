@@ -11,11 +11,11 @@ Description: posibatch allows users to adjust for positional effects and batch e
     Users are returned an expression or methylation matrix that has been corrected for position effects and 
     batch effects.
 Maintainer: Chuan Jiao <jiaochuan@sklmg.edu.cn>, Chao Chen <chenchao@sklmg.edu.cn>, Chunyu Liu <liucy@uic.edu>
-Depends: R (>= 2.8), sva
+Depends: R (>= 2.8), sva, lme4
 License: GPL-2
 biocViews: Microarray, MethylationArray, StatisticalMethod,
         Preprocessing, MultipleComparison, Sequencing, RNASeq,
         BatchEffect, PositionalEffect, Normalization
 NeedsCompilation: yes
 RoxygenNote: 6.0.1
-Packaged: 2017-04-05 07:17:51 UTC; J
+Packaged: 2017-07-07 11:42:30 UTC; J
