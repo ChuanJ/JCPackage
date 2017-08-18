@@ -1,5 +1,5 @@
 # JCPackage
-Adjust for positional and batch effects using ComBat
+Adjust for positional and batch effects using ComBat function
 
 You should provide the sample Sentrix information and the methylation levels in matrix file without NA file. The example files shown in the Data file.
 
