@@ -1,6 +1,8 @@
 # JCPackage
 Adjust for positional and batch effects using ComBat function
 
+In this package, we will carefully compare the effects of positions and batches on your datasets. Then a appropriate correction order will be provided.
+
 You should provide the sample Sentrix information and the methylation levels in matrix file without NA file. The example files shown in the Data file.
 
 ## Install from GitHub:
