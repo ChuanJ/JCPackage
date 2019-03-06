@@ -9,6 +9,8 @@ You should provide the sample Sentrix information and the methylation levels in 
 ```R
 library(devtools)
 install_github("ChuanJ/JCpackage")
+
+library(posibatch)
 ```
 ## Usage:
 ### input the methylation levels
