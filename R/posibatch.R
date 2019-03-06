@@ -203,14 +203,12 @@ posibatches <- function(dat, Sentrix, posi=TRUE, batch=TRUE, par.prior=TRUE, pri
         dat<-afterposiExp
       }
     }
-     
-return(dat)
   }
   
   ################################################################################
   ################################################################################
 
-  
+  dat
 }
 
 
