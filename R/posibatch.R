@@ -186,29 +186,26 @@ posibatches <- function(dat, Sentrix, posi=TRUE, batch=TRUE, par.prior=TRUE, pri
   
   if(randomEffectsMatrixWtAveProp[,1]<randomEffectsMatrixWtAveProp[,2]){
     if(posi==TRUE){
-      afterposiExp<-ComBat(dat = dat, batch = positions, mod = mod, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.posi)
+      afterposiExp<-ComBat(dat = dat, batch = positions, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.posi)
       dat<-afterposiExp
     }
     if(batch==TRUE){
-      afterbatchExp<-ComBat(dat = dat, batch = batches, mod = mod, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.batch)
+      afterbatchExp<-ComBat(dat = dat, batch = batches, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.batch)
       dat<-afterbatchExp
     }
     else{
       if(batch==TRUE){
-        afterbatchExp<-ComBat(dat = dat, batch = batches, mod = mod, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.batch)
+        afterbatchExp<-ComBat(dat = dat, batch = batches, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.batch)
         dat<-afterbatchExp
       }
       if(posi==TRUE){
-        afterposiExp<-ComBat(dat = dat, batch = positions, mod = mod, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.posi)
+        afterposiExp<-ComBat(dat = dat, batch = positions, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.posi)
         dat<-afterposiExp
       }
     }
   }
-  
-  ################################################################################
-  ################################################################################
-
-  return(dat)
+return(dat)
+ 
 }
 
 
