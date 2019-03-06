@@ -34,8 +34,12 @@ posibatches <- function(dat, Sentrix, posi=TRUE, batch=TRUE, par.prior=TRUE, pri
   if (is.null(Sentrix)){
     stop('Sentrix informations must be provided.')
   }
-  chips<-as.numeric(factor(substr(Sentrix$sampleNames, 1, 10))) 
-  positions<-as.numeric(factor(substr(Sentrix$sampleNames, 12, 17))) 
+  #chips<-as.numeric(factor(substr(Sentrix$sampleNames, 1, 10))) 
+  #positions<-as.numeric(factor(substr(Sentrix$sampleNames, 12, 17))) 
+  
+  chips <- as.numeric(sapply(strsplit(Sentrix$sampleNames, "_"), function(x) x[1]))
+  positions <- as.numeric(sapply(strsplit(Sentrix$sampleNames, "_"), function(x) x[2]))
+                               
   if (length(positions)!=length(chips)){
     stop('positions and chips must have the same length')
   }
