@@ -187,21 +187,21 @@ posibatches <- function(dat, Sentrix, batch=TRUE, par.prior=TRUE, prior.plots=FA
     
   }
   
-  
     if(randomEffectsMatrixWtAveProp[,1]<randomEffectsMatrixWtAveProp[,2]){
-              afterbatchExp<-ComBat(dat = dat, batch = batches, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.batch)
-              afterposiExp<-ComBat(dat = afterbatchExp, batch = positions, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.posi)
-			  dat<-afterposiExp
+         afterbatchExp<-ComBat(dat = dat, batch = batches, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.batch)
+         afterposiExp<-ComBat(dat = afterbatchExp, batch = positions, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.posi)
+	 dat<-afterposiExp
          } else{
-	         afterposiExp<-ComBat(dat = afterbatchExp, batch = positions, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.posi)
-	         afterbatchExp<-ComBat(dat = afterposiExp, batch = batches, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.batch)
-			 dat<-afterbatchExp
-    }}else{
+	 afterposiExp<-ComBat(dat = afterbatchExp, batch = positions, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.posi)
+	 afterbatchExp<-ComBat(dat = afterposiExp, batch = batches, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.batch)
+	 dat<-afterbatchExp
+         }
+   }else{
     afterposiExp<-ComBat(dat = dat, batch = positions, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.posi)
     dat<-afterposiExp
       }
      return(dat)
-	  }
+				}
 	  
     
 
