@@ -25,7 +25,7 @@
 
 ################################################################################
 ################################################################################
-posibatches <- function(dat, Sentrix, posi=TRUE, batch=TRUE, par.prior=TRUE, prior.plots=FALSE, mean.only.posi=FALSE, mean.only.batch=FALSE) {
+posibatches <- function(dat, Sentrix, batch=TRUE, par.prior=TRUE, prior.plots=FALSE, mean.only.posi=FALSE, mean.only.batch=FALSE) {
   require(sva)
   require(lme4)
   #get the position and batch information----------------------------------------
@@ -55,6 +55,9 @@ posibatches <- function(dat, Sentrix, posi=TRUE, batch=TRUE, par.prior=TRUE, pri
   } else {
     batches<-as.factor(Sentrix$batches)
   }
+  
+   if(batch==TRUE){
+      
   ################################################################################
   ################################################################################
   pct_threshold = .8 # Amount of variability desired to be explained by the principal components.  Set to match the results in book chapter and SAS code.  User can adjust this to a higher (>= 0.8) number but < 1.0
@@ -184,29 +187,24 @@ posibatches <- function(dat, Sentrix, posi=TRUE, batch=TRUE, par.prior=TRUE, pri
     
   }
   
-  if(randomEffectsMatrixWtAveProp[,1]<randomEffectsMatrixWtAveProp[,2]){
-    if(posi==TRUE){
-      afterposiExp<-ComBat(dat = dat, batch = positions, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.posi)
-      dat<-afterposiExp
-    }
-    if(batch==TRUE){
-      afterbatchExp<-ComBat(dat = dat, batch = batches, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.batch)
-      dat<-afterbatchExp
-    }
-    else{
-      if(batch==TRUE){
-        afterbatchExp<-ComBat(dat = dat, batch = batches, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.batch)
-        dat<-afterbatchExp
+  
+    if(randomEffectsMatrixWtAveProp[,1]<randomEffectsMatrixWtAveProp[,2]){
+              afterbatchExp<-ComBat(dat = dat, batch = batches, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.batch)
+              afterposiExp<-ComBat(dat = afterbatchExp, batch = positions, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.posi)
+			  dat<-afterposiExp
+         } else{
+	         afterposiExp<-ComBat(dat = afterbatchExp, batch = positions, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.posi)
+	         afterbatchExp<-ComBat(dat = afterposiExp, batch = batches, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.batch)
+			 dat<-afterbatchExp
+    }}else{
+    afterposiExp<-ComBat(dat = dat, batch = positions, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.posi)
+    dat<-afterposiExp
       }
-      if(posi==TRUE){
-        afterposiExp<-ComBat(dat = dat, batch = positions, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.posi)
-        dat<-afterposiExp
-      }
-    }
-  }
-return(dat)
- 
-}
+     return(dat)
+	  }
+	  
+    
+
 
 
 
