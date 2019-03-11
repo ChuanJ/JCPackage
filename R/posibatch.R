@@ -192,7 +192,7 @@ posibatches <- function(dat, Sentrix, batch=TRUE, par.prior=TRUE, prior.plots=FA
          afterposiExp<-ComBat(dat = afterbatchExp, batch = positions, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.posi)
 	 dat<-afterposiExp
          } else{
-	 afterposiExp<-ComBat(dat = afterbatchExp, batch = positions, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.posi)
+	 afterposiExp<-ComBat(dat = dat, batch = positions, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.posi)
 	 afterbatchExp<-ComBat(dat = afterposiExp, batch = batches, par.prior = par.prior, prior.plots = prior.plots, mean.only = mean.only.batch)
 	 dat<-afterbatchExp
          }
