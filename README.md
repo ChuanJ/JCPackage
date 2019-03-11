@@ -23,7 +23,7 @@ Sentrix <- read.csv("Sentrix.csv",header=T,sep=",")
 ```
 ### Correct the positional effect and batch effect
 ```R
-results <- posibatches(dat, Sentrix, posi=TRUE, batch=TRUE, par.prior=TRUE, prior.plots=FALSE, mean.only.posi=FALSE, mean.only.batch=FALSE)
+results <- posibatches(dat, Sentrix, batch=TRUE, par.prior=TRUE, prior.plots=FALSE, mean.only.posi=FALSE, mean.only.batch=FALSE)
 ```
 ### output the file
 ```R
